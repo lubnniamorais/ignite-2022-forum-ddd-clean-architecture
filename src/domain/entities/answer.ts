@@ -9,8 +9,3 @@ export class Answer {
     this.id = id ?? randomUUID();
   }
 }
-
-
-
-
-

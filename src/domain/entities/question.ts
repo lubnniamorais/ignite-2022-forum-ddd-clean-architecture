@@ -11,9 +11,3 @@ export class Question {
     this.id = id ?? randomUUID();
   }
 }
-
-
-
-
-
-
