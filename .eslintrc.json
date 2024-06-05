@@ -11,6 +11,7 @@
       "arrowParens": "avoid",
       "semi": true // PARA COLOCAR O ; NO FINAL, EM INGLÊS semicolon
     }],
-    "@typescript-eslint/no-unused-vars": "off" 
+    "@typescript-eslint/no-unused-vars": "off",
+    "no-useless-constructor": "off"
   }
 }
