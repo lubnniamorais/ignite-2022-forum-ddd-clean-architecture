@@ -5,7 +5,7 @@ import { AnswerQuestionUseCase } from './answer-question';
 let inMemoryAnswersRepository: InMemoryAnswersRepository;
 let sut: AnswerQuestionUseCase;
 
-describe('Create answer', () => {
+describe('Create Answer', () => {
   beforeEach(() => {
     inMemoryAnswersRepository = new InMemoryAnswersRepository();
     sut = new AnswerQuestionUseCase(inMemoryAnswersRepository);
