@@ -7,4 +7,20 @@ export class InMemoryAnswersRepository implements AnswersRepository {
   async create(answer: Answer) {
     this.answers.push(answer);
   }
+
+  async findByID(id: string): Promise<Answer | null> {
+    const answer = this.answers.find(answer => answer.id.toString() === id);
+
+    if (!answer) {
+      return null;
+    }
+
+    return answer;
+  }
+
+  async delete(answer: Answer): Promise<void> {
+    const answerIndex = this.answers.findIndex(item => item.id === answer.id);
+
+    this.answers.splice(answerIndex, 1);
+  }
 }
