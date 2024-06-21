@@ -9,4 +9,24 @@ export class InMemoryAnswerCommentsRepository
   async create(answerComment: AnswerComment) {
     this.answerComments.push(answerComment);
   }
+
+  async findById(id: string): Promise<AnswerComment | null> {
+    const answerComment = this.answerComments.find(
+      item => item.id.toString() === id,
+    );
+
+    if (!answerComment) {
+      return null;
+    }
+
+    return answerComment;
+  }
+
+  async delete(answerComment: AnswerComment): Promise<void> {
+    const answerIndex = this.answerComments.findIndex(
+      item => item.id === answerComment.id,
+    );
+
+    this.answerComments.splice(answerIndex, 1);
+  }
 }
