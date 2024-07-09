@@ -2,11 +2,13 @@ import { Entity } from '@/core/entities/entity';
 
 import { UniqueEntityID } from '@/core/entities/unique-entity-id';
 import { Optional } from '@/core/types/optional';
+import { AnswerAttachementList } from './answer-attachement-list';
 
 export interface AnswerProps {
   authorId: UniqueEntityID;
   questionId: UniqueEntityID;
   content: string;
+  attachements: AnswerAttachementList;
   createdAt: Date;
   updatedAt?: Date;
 }
@@ -22,6 +24,10 @@ export class Answer extends Entity<AnswerProps> {
 
   get content() {
     return this.props.content;
+  }
+
+  get attachements() {
+    return this.props.attachements;
   }
 
   get createdAt() {
@@ -45,13 +51,19 @@ export class Answer extends Entity<AnswerProps> {
     this.touch();
   }
 
+  set attachements(attachements: AnswerAttachementList) {
+    this.props.attachements = attachements;
+    this.touch();
+  }
+
   static create(
-    props: Optional<AnswerProps, 'createdAt'>,
+    props: Optional<AnswerProps, 'createdAt' | 'attachements'>,
     id?: UniqueEntityID,
   ) {
     const answer = new Answer(
       {
         ...props,
+        attachements: props.attachements ?? new AnswerAttachementList(),
         createdAt: props.createdAt ?? new Date(),
       },
       id,
