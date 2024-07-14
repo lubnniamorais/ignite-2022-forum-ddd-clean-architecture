@@ -4,7 +4,7 @@ import { DeleteAnswerUseCase } from './delete-answer';
 
 import { makeAnswer } from 'test/factories/make-answer';
 import { UniqueEntityID } from '@/core/entities/unique-entity-id';
-import { NotAllowedError } from './errors/not-allowed-error';
+import { NotAllowedError } from '@/core/errors/errors/not-allowed-error';
 import { InMemoryAnswerAttachementsRepository } from 'test/repositories/in-memory-answer-attachements-repository';
 import { makeAnswerAttachement } from 'test/factories/make-answer-attachement';
 
